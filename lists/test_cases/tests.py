@@ -58,7 +58,7 @@ class TaskFromTest(TestCase):
 		self.assertTrue(form.is_valid())
 
 
-class ListAddTaskViewsTest(TestCase):
+class AddTaskViewsTest(TestCase):
 
 	def setUp(self):
 		self.client = Client()
