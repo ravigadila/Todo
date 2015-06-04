@@ -8,6 +8,6 @@ class TaskForm(forms.ModelForm):
 		model = Task
 		fields = ['Title','Description', 'due_time']
 
-	def __init__(self, *args, **kwargs):
-		super(TaskForm, self).__init__(*args, **kwargs)
-		self.fields['due_time'].widget = widgets.AdminSplitDateTime()
+	# def __init__(self, *args, **kwargs):
+	# 	super(TaskForm, self).__init__(*args, **kwargs)
+	# 	self.fields['due_time'].widget = widgets.AdminSplitDateTime()

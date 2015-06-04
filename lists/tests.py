@@ -15,6 +15,15 @@ class SimpleAdditionTest(TestCase):
         """
         self.assertEqual(1 + 1, 2)
 
+class ModelMethodTest(TestCase):
+
+	def setUp(self):
+		self.task = Task.objects.create(Title = 'MyTask', 
+					Description = 'tasdescription', due_time = '2012-06-08 10:29:47')
+	def test_method(self):
+		t = Task.objects.get(Title = 'MyTask')
+		self.assertEqual('June 08, 2012 10:29:47', t.get_readable_due_date())
+
 
 class HomePageTest(TestCase):
 
@@ -33,8 +42,11 @@ class UrlTests(TestCase):
 		self.assertIn('MicroPyramid', response.content)
 		# self.assertTrue(response.content.endswith(b'</html>'))
 
-
 class TaskFromTest(TestCase):
+
+	def test_form_invalidate_with_dateformat(self):
+		form = TaskForm(data = {'Title':'Build ToDo aplication','Description':'Create Read Update Delete', 'due_time':'2012/06/08 10:29:47'})
+		self.assertFalse(form.is_valid())
 
 	def test_form_invalide(self):
 
@@ -45,10 +57,6 @@ class TaskFromTest(TestCase):
 		form = TaskForm(data = {'Title':'Build ToDo aplication','Description':'Create Read Update Delete', 'due_time':'2012-06-08 10:29:47'})
 		self.assertTrue(form.is_valid())
 
-	def test_form_invalidate_with_dateformat(self):
-		form = TaskForm(data = {'Title':'Build ToDo aplication','Description':'Create Read Update Delete', 'due_time':'2012/06/08 10:29:47'})
-		# self.assertFieldOutput(form.due_time, )
-		self.assertFalse(form.is_valid())
 
 class ListAddTaskViewsTest(TestCase):
 
@@ -100,4 +108,3 @@ class ListEditTaskTest(TestCase):
 	def setUp(self):
 		self.client = Client()
 		task = Task.objects.create(Title = 'My first task', Description = 'My first task description', due_time = '2012-06-08 10:29:47')
-

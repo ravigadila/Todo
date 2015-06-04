@@ -10,3 +10,8 @@ class Task(models.Model):
 
 	def __unicode__(self):
 		return self.Title
+
+	def get_readable_due_date(self):
+		value = self.due_time
+		return value.strftime("%B %d, %Y %H:%M:%S")
+
