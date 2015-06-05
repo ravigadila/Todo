@@ -1,5 +1,4 @@
 from django.test import LiveServerTestCase
-from pyvirtualdisplay import Display
 from selenium.webdriver.firefox.webdriver import WebDriver
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 
@@ -7,8 +6,6 @@ class BaseTestCase(StaticLiveServerTestCase):
 
     @classmethod
     def setUpClass(cls):
-        cls.display = Display(visible=0, size=(800, 600))
-        cls.display.start()
         cls.driver = WebDriver()
         super(BaseTestCase, cls).setUpClass()
         
@@ -17,7 +14,6 @@ class BaseTestCase(StaticLiveServerTestCase):
     def tearDownClass(cls):
         super(BaseTestCase, cls).tearDownClass()
         cls.driver.quit()
-        cls.display.stop()
 
 class AddTaskTestCase(BaseTestCase):
 
