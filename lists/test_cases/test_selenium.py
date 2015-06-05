@@ -1,7 +1,8 @@
 from django.test import LiveServerTestCase
 from selenium.webdriver.firefox.webdriver import WebDriver
+from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 
-class BaseTestCase(LiveServerTestCase):
+class BaseTestCase(StaticLiveServerTestCase):
 
     @classmethod
     def setUpClass(cls):
