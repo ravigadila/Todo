@@ -6,6 +6,7 @@ class BaseTestCase(StaticLiveServerTestCase):
 
     @classmethod
     def setUpClass(cls):
+        
         cls.driver = WebDriver()
         super(BaseTestCase, cls).setUpClass()
         

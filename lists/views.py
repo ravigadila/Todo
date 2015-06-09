@@ -57,3 +57,7 @@ def delete_task(request, task_id):
 	task = get_object_or_404(Task, id = task_id)
 	task.delete()
 	return HttpResponseRedirect('/task-list/')
+
+def all_random(request):
+	task = Task.objects.all()
+	groupt = Group_task.objects.all()

@@ -15,3 +15,11 @@ class Task(models.Model):
 		value = self.due_time
 		return value.strftime("%B %d, %Y %H:%M:%S")
 
+
+class Group_task(models.Model):
+
+	group_name = models.CharField(max_length = 55)
+	Description = models.TextField()
+
+	def __unicode__(self):
+		return self.group_name
