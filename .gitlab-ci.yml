@@ -1,6 +1,7 @@
 Python 2.7:
     script:
     - export PY_EXE=python2.7
+    - sudo Xvfb :10 -ac
     - export DISPLAY=:10
     - virtualenv env
     - source env/bin/activate
