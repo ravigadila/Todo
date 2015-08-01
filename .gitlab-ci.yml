@@ -6,7 +6,5 @@ Python 2.7:
     - pip install -r requirements.txt
     - export DISPLAY=:10
     - python manage.py test
-    tags:
-    - python2.7
     except:
     - tags
