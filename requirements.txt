@@ -17,7 +17,7 @@ pylint-django==0.6
 pylint-plugin-utils==0.2.3
 python-mimeparse==0.1.4
 python-subunit==1.1.0
-selenium==2.46.0
+selenium
 six==1.9.0
 sure==1.2.12
 testtools==1.8.0
