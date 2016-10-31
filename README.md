@@ -1,3 +1,2 @@
-Simple TODO list App developed Using django 1.8
-	1. Create, Edit, Delete Todo List
-	2. Unit-Tests
+# Todo
+Testing application for 3rd party apps gitlabCI, Travis, Circleci, Etc.
