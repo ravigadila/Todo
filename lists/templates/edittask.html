@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<body>
+<br/>
+<a href="/task-list/">All tasks</a>
+<br/>
+
+
+<form action="/edit-task/{{task.id}}/" method="POST" enctype="multipart/form-data">
+	{% csrf_token %}
+    {{ form }}
+<input type="submit" value="Add"/>
+</form>
+{% if message %}
+	<p>{{ message }}</p>
+{% endif %}
+</body>
+</html>
