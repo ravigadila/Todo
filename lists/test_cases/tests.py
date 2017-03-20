@@ -74,6 +74,17 @@ class AddTaskViewsTest(TestCase):
 		self.assertIn('Description', response.content)
 		self.assertIn('due_time', response.content)
 
+	def test_add_task_html_page_output(self):
+
+                response = self.client.get('/add-task/')
+
+                self.assertEqual(response.status_code, 200)
+                self.assertTemplateUsed('addtask.html')
+
+                self.assertIn('Title', response.content)
+                self.assertIn('Description', response.content)
+                self.assertIn('due_time', response.content)
+
 	def test_add_task_with_empty_data(self):
 		
 		task_data = {}
@@ -93,13 +104,10 @@ class AddTaskViewsTest(TestCase):
 	def test_add_task_with_valid_data(self):
 		tasks_count = Task.objects.count()
 		self.assertEqual(tasks_count, 0)
-		
 		task_data = {'Title':'My first task','Description':'My first task description', 'due_time':'2012-06-08 10:29:47'}
 		response = self.client.post('/add-task/', task_data)
-		
 		tasks_count = Task.objects.count()
 		self.assertEqual(tasks_count, 1)
-		
 		self.assertEqual(response.status_code, 200)
 
 
